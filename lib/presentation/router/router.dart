@@ -1,7 +1,7 @@
+import 'package:flop/presentation/features/features.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:flop/presentation/presentation.dart';
 import 'package:flop/di/dependencyInjection.dart';
 
 final GlobalKey<NavigatorState> _rootNavigationKey = GlobalKey<NavigatorState>(
@@ -22,18 +22,15 @@ final GoRouter router = GoRouter(
           child: const HomeScreen(),
         );
       },
-      // для следующей лабораторной работы
-      // routes: [
-      // GoRoute(
-      // path: 'article/:id',
-      // pageBuilder: (context, state) {
-      // return NoTransitionPage<void>(
-      // key: state.pageKey,
-      // child: const ArticleScreen(),
-      // );
-      // },
-      // ),
-      // ],
+    ),
+    GoRoute(
+      path: '/description',
+      pageBuilder: (context, state) {
+        return NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const DescriptionScreen(),
+        );
+      },
     ),
   ],
 );

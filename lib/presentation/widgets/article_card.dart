@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flop/presentation/extensions/extensions.dart';
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
@@ -9,8 +9,7 @@ class ArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-// для следующей лабораторной работы
-// context.go('/home/article/1');
+      context.go('/description');
       },
       borderRadius: BorderRadius.circular(5),
       child: Row(
