@@ -2,7 +2,7 @@ import 'package:flop/presentation/features/features.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:flop/di/dependencyInjection.dart';
+import 'package:flop/serviceLocator/serviceLocator.dart';
 
 final GlobalKey<NavigatorState> _rootNavigationKey = GlobalKey<NavigatorState>(
   debugLabel: 'root',

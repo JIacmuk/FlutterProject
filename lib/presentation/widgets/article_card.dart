@@ -1,15 +1,31 @@
+
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
+import 'package:flop/domain/useCase/getAllFacts.dart';
+import 'package:flop/data/apiClient.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flop/presentation/extensions/extensions.dart';
+
 class ArticleCard extends StatelessWidget {
+  final String title;
+  final String desc;
+  final String? imageUrl;
+
   const ArticleCard({
+    required this.title,
+    required this.desc,
+    required this.imageUrl,
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-      context.go('/description');
+        context.go('/description');
       },
       borderRadius: BorderRadius.circular(5),
       child: Row(
@@ -20,7 +36,7 @@ class ArticleCard extends StatelessWidget {
             child: Image.network(
               width: 100,
               height: 100,
-              'https://media.sketchfab.com/models/6a298927c97c4feaa6cae0ba21cadf73/thumbnails/49246466a0b346f9b1d8be542257c46c/69d1cb01171a4572a67d8d99bbeba645.jpeg',
+              imageUrl!,
               fit: BoxFit.cover,
             ),
           ),
@@ -30,14 +46,14 @@ class ArticleCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Шлеппа в кубе',
+                  title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 5.ph,
                 Text(
-                  'Распространи',
+                  desc,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyLarge,
